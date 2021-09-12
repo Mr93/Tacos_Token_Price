@@ -14,8 +14,16 @@ class ContractController : EpoxyController() {
             ContractItemBindingModel_()
                 .id(it.contractAddress + index + it.id)
                 .itemIndex(index)
-                .content("${it.contractName}: ${it.lastRate} \$XTZ")
+                .content(getContent(it))
                 .addTo(this)
+        }
+    }
+
+    private fun getContent(data: ContractModel): String {
+        return if (data.isReverse) {
+            "1 \$XTZ = ${data.lastRate} ${data.contractName}"
+        } else {
+            "1 ${data.contractName} = ${data.lastRate} \$XTZ"
         }
     }
 

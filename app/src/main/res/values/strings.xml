@@ -2,6 +2,7 @@
     <string name="app_name">Tacos Token Price</string>
     <string name="error_address">Error contract address</string>
     <string name="add_address">Add contract address here</string>
+    <string name="add_name">Add contract name here</string>
     <string name="add">Add</string>
     <string name="delete_all">Delete All Contract</string>
     <string name="delete_all_message">Do you want to delete all contracts?</string>

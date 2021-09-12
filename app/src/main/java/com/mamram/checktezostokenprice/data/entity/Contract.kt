@@ -10,11 +10,12 @@ data class Contract(
     @PrimaryKey(autoGenerate = true) var id: Int = 0,
     @ColumnInfo(name = "name") val contractName: String,
     @ColumnInfo(name = "address") val contractAddress: String,
-    @ColumnInfo(name = "last_rate") val lastRate: Double
+    @ColumnInfo(name = "last_rate") val lastRate: Double,
+    @ColumnInfo(name = "is_reverse") val isReverse: Boolean = false
 )
 
 fun Contract.toModel(): ContractModel {
-    return ContractModel(id, contractName, contractAddress, lastRate)
+    return ContractModel(id, contractName, contractAddress, lastRate, isReverse)
 }
 
 fun List<Contract>.toModels(): List<ContractModel> {

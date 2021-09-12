@@ -63,8 +63,15 @@ class MainActivity : AppCompatActivity() {
             this.setController(controller)
         }
         binding.btnAdd.setOnClickListener {
-            if (binding.edtContractAddress.text.toString().isNotEmpty()) {
-                if (mainViewModel.fetchContractInfo(binding.edtContractAddress.text.toString())) {
+            if (binding.edtContractAddress.text.toString()
+                    .isNotEmpty() && binding.edtContractName.text.toString().isNotEmpty()
+            ) {
+                if (mainViewModel.fetchContractInfo(
+                        binding.edtContractAddress.text.toString(),
+                        binding.edtContractName.text.toString()
+                    )
+                ) {
+                    binding.edtContractName.setText("")
                     binding.edtContractAddress.setText("")
                 }
             }

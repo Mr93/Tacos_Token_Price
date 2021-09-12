@@ -51,21 +51,37 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/tezos_color"
-            android:gravity="center_vertical"
+            android:gravity="bottom"
             android:orientation="horizontal"
             android:padding="8dp"
             app:layout_constraintBottom_toBottomOf="parent">
 
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/edt_contract_address"
-                android:layout_width="wrap_content"
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/white"
-                android:hint="@string/add_address"
-                android:textColor="@color/white"
-                android:textColorHint="#E1DBDB" />
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edt_contract_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/white"
+                    android:hint="@string/add_name"
+                    android:textColor="@color/white"
+                    android:textColorHint="#E1DBDB" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edt_contract_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/white"
+                    android:hint="@string/add_address"
+                    android:textColor="@color/white"
+                    android:textColorHint="#E1DBDB" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
             <Button
                 android:id="@+id/btn_add"

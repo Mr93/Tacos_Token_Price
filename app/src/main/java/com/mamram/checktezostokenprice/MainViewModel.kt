@@ -64,7 +64,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun fetchContractInfo(address: String): Boolean {
+    fun fetchContractInfo(address: String, name: String): Boolean {
         if (_loadingVisibility.value == View.GONE) {
             _loadingVisibility.value = View.VISIBLE
             viewModelScope.launch(Dispatchers.IO) {
@@ -73,7 +73,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                     if (contractInfo.type == null || contractInfo.type != TYPE_CONTRACT) {
                         showAddressError(address)
                     } else {
-                        fetchContractExchangeRate(address, contractInfo.alias ?: "", -1)
+                        fetchContractExchangeRate(address, name, -1)
                     }
                 } catch (e: Exception) {
                     showAddressError(address)
@@ -103,13 +103,20 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 if (contractStorage.storage?.tezPool == null || contractStorage.storage.tokenPool == null) {
                     showAddressError(address)
                 } else {
-                    val rate =
+                    var isReverse = false
+                    var rate =
                         contractStorage.storage.tezPool.toDouble() / contractStorage.storage.tokenPool.toDouble()
+                    if (rate < 0.00001) {
+                        rate =
+                            contractStorage.storage.tokenPool.toDouble() / contractStorage.storage.tezPool.toDouble()
+                        isReverse = true
+                    }
                     if (localId == -1) {
                         Contract(
                             contractAddress = address,
                             contractName = alias,
-                            lastRate = rate
+                            lastRate = rate,
+                            isReverse = isReverse
                         ).let {
                             it.id = contractDao.insertContract(it).toInt()
                             insertToContractList(it)
@@ -119,7 +126,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                             contractAddress = address,
                             contractName = alias,
                             lastRate = rate,
-                            id = localId
+                            id = localId,
+                            isReverse = isReverse
                         ).let {
                             contractDao.updateContract(it)
                             updateContractList(it)
