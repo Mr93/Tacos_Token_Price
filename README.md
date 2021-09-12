@@ -1,6 +1,6 @@
 # Tacos_Token_Price
 
-This project is used to check exchange rate of token/Tezos base on Tzkt.io, it will auto-refresh every 15 seconds. You can clone this project and build android APK by yourself or download my APK from here https://dply.me/sfns6d.
+This project is used to check exchange rate of token/Tezos base on Tzkt.io, it will auto-refresh every 15 seconds. You can clone this project and build android APK by yourself or download my APK from here https://dply.me/44jatn.
 
 If this app is useful for you, feel free to donate my some Tez, thanks!!!!!<br />
 My Tezos address: tz1MM9YqZuifZMYxuvQDKMTr3iRafDPpo8Gu<br />
