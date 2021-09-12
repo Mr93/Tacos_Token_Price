@@ -7,10 +7,10 @@ My Tezos address: tz1MM9YqZuifZMYxuvQDKMTr3iRafDPpo8Gu<br />
 or this address: mamram93.tez
 
 # User guide
-1. Get contract address from Quipu (or somewhere else), for example, Address of Quipu Token in QuipuSwap is KT1X3zxdTzPB9DgVzA3ad6dgZe9JEamoaeRy
+1. Get contract address from Quipu (or somewhere else), for example, Address of Quipu Token in QuipuSwap is KT1X3zxdTzPB9DgVzA3ad6dgZe9JEamoaeRy, add contract name to "contract name" input (e.g Quipu token...)
 
 
-![alt text](https://raw.githubusercontent.com/Mr93/Tacos_Token_Price/master/Screen%20Shot%202021-09-12%20at%2014.03.34.png)
+![alt text](https://raw.githubusercontent.com/Mr93/Tacos_Token_Price/master/device-2021-09-12-152142.png)
 
 
 2. Open Tacos Token Price app, paste contract addres and click button "Add", token will be added into track list
